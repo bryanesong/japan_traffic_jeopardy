@@ -72,9 +72,9 @@ export const gameData: GameData = {
         },
         {
           value: 800,
-          clue: "Riders from Switzerland, Slovenia, Germany, France, Belgium, Monaco and Taiwan can't use an IDP at all — instead they need their home license plus THIS, available from JAF for about ¥6,000.",
+          clue: "Riders from Switzerland, Germany, France, Belgium, Monaco and Taiwan can't use an IDP at all — instead they need their home license plus THIS, available from JAF for about ¥6,000.",
           response: "What is an official Japanese translation of their license?",
-          note: "These seven countries' licenses aren't covered by the Geneva IDP, so an official JAF (or embassy) translation is required.",
+          note: "These six countries' licenses aren't covered by the Geneva IDP, so an official JAF (or embassy) translation is required.",
         },
         {
           value: 1000,
