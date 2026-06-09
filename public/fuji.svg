@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" role="img" aria-label="Mount Fuji">
+  <title>Mount Fuji</title>
+  <defs>
+    <linearGradient id="fujiSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#060CE9"/>
+      <stop offset="1" stop-color="#0B1560"/>
+    </linearGradient>
+  </defs>
+  <rect width="240" height="160" fill="url(#fujiSky)"/>
+  <!-- rising sun -->
+  <circle cx="186" cy="46" r="26" fill="#FFD24A"/>
+  <!-- mountain body -->
+  <path d="M0 160 L86 44 q34 -42 68 0 L240 160 Z" fill="#1B2A78"/>
+  <!-- snow cap -->
+  <path d="M86 44 q34 -42 68 0 l-14 18 q-10 -8 -20 0 q-10 8 -20 0 Z" fill="#FFFFFF"/>
+  <!-- snow streaks -->
+  <path d="M104 62 q8 8 16 0 q8 -8 16 0 l-6 12 q-10 -6 -20 0 Z" fill="#FFFFFF"/>
+</svg>

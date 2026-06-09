@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 260" role="img" aria-label="Japan Traffic Jeopardy logo">
+  <title>Japan Traffic Jeopardy</title>
+  <defs>
+    <linearGradient id="badge" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0A12C8"/>
+      <stop offset="1" stop-color="#060CE9"/>
+    </linearGradient>
+    <linearGradient id="goldText" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFE08A"/>
+      <stop offset="0.5" stop-color="#E8B923"/>
+      <stop offset="1" stop-color="#D4A017"/>
+    </linearGradient>
+  </defs>
+
+  <!-- rounded show-card badge -->
+  <rect x="10" y="10" width="500" height="240" rx="22" fill="url(#badge)" stroke="#FFD24A" stroke-width="4"/>
+
+  <!-- emblem: rising-sun rays behind torii + Fuji -->
+  <g transform="translate(150 96)">
+    <!-- rays -->
+    <g stroke="#FFD24A" stroke-width="6" stroke-linecap="round" opacity="0.85">
+      <line x1="0" y1="0" x2="0" y2="-58"/>
+      <line x1="0" y1="0" x2="40" y2="-42"/>
+      <line x1="0" y1="0" x2="58" y2="0"/>
+      <line x1="0" y1="0" x2="40" y2="42"/>
+      <line x1="0" y1="0" x2="-40" y2="-42"/>
+      <line x1="0" y1="0" x2="-58" y2="0"/>
+      <line x1="0" y1="0" x2="-40" y2="42"/>
+    </g>
+    <circle cx="0" cy="0" r="46" fill="#060CE9"/>
+    <!-- Mt. Fuji inside disc -->
+    <path d="M-44 30 L-10 -22 q10 -14 20 0 L44 30 Z" fill="#1B2A78"/>
+    <path d="M-10 -22 q10 -14 20 0 l-6 8 q-4 -4 -8 0 q-4 4 -8 0 Z" fill="#FFFFFF"/>
+    <!-- torii in vermilion over Fuji -->
+    <g fill="#E03A2F">
+      <path d="M-30 -4 q30 -10 60 0 l0 6 q-30 -8 -60 0 Z"/>
+      <rect x="-22" y="8" width="44" height="6"/>
+      <rect x="-18" y="-2" width="6" height="34"/>
+      <rect x="12" y="-2" width="6" height="34"/>
+    </g>
+  </g>
+
+  <!-- motorcycle silhouette riding across the lower band -->
+  <g transform="translate(238 178) scale(0.62)" fill="#FFD24A">
+    <circle cx="56" cy="118" r="30" fill="none" stroke="#FFD24A" stroke-width="9"/>
+    <circle cx="200" cy="118" r="30" fill="none" stroke="#FFD24A" stroke-width="9"/>
+    <path d="M56 118 L92 74 L150 74 L150 74 L120 118 Z"/>
+    <path d="M88 80 q20 -20 56 -18 l12 4 q6 8 -4 12 l-44 8 q-18 4 -20 -6 Z"/>
+    <rect x="108" y="88" width="40" height="24" rx="4"/>
+    <path d="M120 116 L196 120 q10 1 10 5 q0 5 -10 4 L120 124 Z"/>
+    <path d="M150 74 L168 58 L196 62" fill="none" stroke="#FFD24A" stroke-width="8" stroke-linecap="round"/>
+  </g>
+
+  <!-- wordmark -->
+  <text x="260" y="150" text-anchor="middle" font-family="'Anton','Archivo Black','Arial Black',sans-serif" font-size="40" letter-spacing="1.5" fill="url(#goldText)" stroke="#0B1560" stroke-width="0.6">JAPAN TRAFFIC</text>
+  <text x="260" y="226" text-anchor="middle" font-family="'Anton','Archivo Black','Arial Black',sans-serif" font-size="34" letter-spacing="4" fill="#FFFFFF">JEOPARDY</text>
+</svg>
