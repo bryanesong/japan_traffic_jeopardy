@@ -59,7 +59,7 @@ system fallbacks, so they degrade gracefully if the fonts are not loaded.
 
 | File | Use |
 |------|-----|
-| `logo.svg` | Primary game logo / wordmark — blue show-card badge with rising-sun + Fuji + torii emblem, a gold motorcycle, and "JAPAN TRAFFIC / JEOPARDY" wordmark. Headers, splash, title bar. |
+| `logo.svg` | Primary game logo / wordmark — blue show-card badge with rising-sun + Fuji + torii emblem, a gold motorcycle, and "JAPAN TRAFFIC / JEOPARDY" wordmark. Standalone reference; the app header renders an inline version (`components/Logo.tsx`) so the wordmark uses the loaded Anton font. |
 | `motorcycle.svg` | Clean motorcycle silhouette icon (indigo with gold accents). Category icon, list bullets, loading state. |
 | `torii.svg` | Vermilion torii-gate icon on transparent ground. Category/section marker, decorative accent. |
 | `fuji.svg` | Stylized Mt. Fuji with rising sun on a blue gradient sky. Backgrounds, section headers, scene art. |
@@ -67,9 +67,12 @@ system fallbacks, so they degrade gracefully if the fonts are not loaded.
 | `helmet.svg` | Full-face motorcycle helmet with gold trim and rising-sun emblem. Player avatar, score chip, safety category. |
 | `favicon.svg` | Compact rounded-square favicon: gold torii + rising sun on Jeopardy blue. Browser tab / PWA icon. |
 | `bg-pattern.svg` | Seamless seigaiha (wave) pattern in indigo on deep blue. Tileable page/board background texture. |
-| `og-image.svg` | 1200x630 social-share / Open Graph image with full branding. Link previews, share cards. |
 
-All use the palette above. The logo and og-image share the same emblem construction for consistency.
+The 1200x630 social-share / Open Graph image is generated at build time as a real
+PNG by `app/opengraph-image.tsx` (via `next/og`), reusing the same emblem so link
+previews render reliably across platforms that don't support SVG OG images.
+
+All use the palette above.
 
 ---
 

@@ -18,10 +18,10 @@ const config: Config = {
       },
       fontFamily: {
         board: [
+          "var(--font-board)",
           "'Arial Narrow'",
           "'Helvetica Neue Condensed'",
           "Impact",
-          "Oswald",
           "system-ui",
           "sans-serif",
         ],
