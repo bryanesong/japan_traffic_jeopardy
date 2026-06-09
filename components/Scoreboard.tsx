@@ -71,7 +71,16 @@ export default function Scoreboard({
               className="rounded-md border border-jeopardy-value/20 bg-jeopardy-blue/20 p-3"
             >
               <div className="flex items-center justify-between gap-2">
-                <span className="truncate font-bold text-white">{team.name}</span>
+                <span className="flex min-w-0 items-center gap-2 font-bold text-white">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/helmet.svg"
+                    alt=""
+                    aria-hidden="true"
+                    className="h-6 w-6 shrink-0"
+                  />
+                  <span className="truncate">{team.name}</span>
+                </span>
                 <div className="flex items-center gap-2">
                   <span
                     className={[
@@ -98,6 +107,7 @@ export default function Scoreboard({
                     <button
                       type="button"
                       onClick={() => onAdjustScore(team.id, activeValue)}
+                      aria-label={`Add $${activeValue} to ${team.name}`}
                       className="rounded bg-green-600/80 px-2 py-1 text-xs font-bold text-white transition hover:bg-green-500"
                     >
                       +${activeValue}
@@ -105,6 +115,7 @@ export default function Scoreboard({
                     <button
                       type="button"
                       onClick={() => onAdjustScore(team.id, -activeValue)}
+                      aria-label={`Subtract $${activeValue} from ${team.name}`}
                       className="rounded bg-red-600/80 px-2 py-1 text-xs font-bold text-white transition hover:bg-red-500"
                     >
                       -${activeValue}
@@ -117,6 +128,7 @@ export default function Scoreboard({
                     key={amount}
                     type="button"
                     onClick={() => onAdjustScore(team.id, amount)}
+                    aria-label={`Add $${amount} to ${team.name}`}
                     className="rounded bg-jeopardy-blue/60 px-2 py-1 text-xs font-semibold text-white transition hover:bg-jeopardy-blue"
                   >
                     +{amount}
@@ -127,6 +139,7 @@ export default function Scoreboard({
                     key={`minus-${amount}`}
                     type="button"
                     onClick={() => onAdjustScore(team.id, -amount)}
+                    aria-label={`Subtract $${amount} from ${team.name}`}
                     className="rounded bg-jeopardy-dark px-2 py-1 text-xs font-semibold text-white transition hover:bg-black"
                   >
                     -{amount}

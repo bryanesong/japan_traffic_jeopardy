@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import type { Clue } from "@/lib/types";
 
 interface ClueModalProps {
@@ -18,6 +18,8 @@ export default function ClueModal({
   onReveal,
   onClose,
 }: ClueModalProps) {
+  const dialogRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
       if (e.key === "Escape") onClose();
@@ -26,15 +28,26 @@ export default function ClueModal({
     return () => window.removeEventListener("keydown", onKey);
   }, [onClose]);
 
+  // Move focus into the dialog on open and restore it to the triggering
+  // element when the dialog closes.
+  useEffect(() => {
+    const previouslyFocused = document.activeElement as HTMLElement | null;
+    dialogRef.current?.focus();
+    return () => previouslyFocused?.focus?.();
+  }, []);
+
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4"
-      role="dialog"
-      aria-modal="true"
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-2xl rounded-lg border-4 border-jeopardy-value bg-jeopardy-blue p-6 shadow-2xl sm:p-10"
+        ref={dialogRef}
+        tabIndex={-1}
+        role="dialog"
+        aria-modal="true"
+        aria-label={`${categoryName} clue for $${clue.value}`}
+        className="relative w-full max-w-2xl rounded-lg border-4 border-jeopardy-value bg-jeopardy-blue p-6 shadow-2xl outline-none sm:p-10"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="mb-2 flex items-center justify-between">

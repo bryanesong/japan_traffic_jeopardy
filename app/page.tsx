@@ -8,6 +8,9 @@ import FinalJeopardy from "@/components/FinalJeopardy";
 import { gameData } from "@/lib/gameData";
 
 const STORAGE_KEY = "japan-traffic-jeopardy-state";
+// Bump when the board's categories/clues change so old "used cell" data
+// (keyed by position) is discarded instead of dimming the wrong clues.
+const CONTENT_VERSION = 1;
 
 interface ActiveClue {
   categoryIndex: number;
@@ -28,6 +31,9 @@ export default function HomePage() {
   const [active, setActive] = useState<ActiveClue | null>(null);
   const [showResponse, setShowResponse] = useState(false);
   const [hydrated, setHydrated] = useState(false);
+  // Incremented on reset so the Final Jeopardy panel (which holds its own
+  // open/revealed state) remounts fresh.
+  const [gameId, setGameId] = useState(0);
 
   // Load persisted state once on mount.
   useEffect(() => {
@@ -35,11 +41,17 @@ export default function HomePage() {
       const raw = window.localStorage.getItem(STORAGE_KEY);
       if (raw) {
         const parsed = JSON.parse(raw) as {
+          version?: number;
           teams?: Team[];
           revealed?: Record<string, boolean>;
         };
         if (Array.isArray(parsed.teams)) setTeams(parsed.teams);
-        if (parsed.revealed && typeof parsed.revealed === "object") {
+        // Only trust saved "used cell" data if it matches the current board.
+        if (
+          parsed.version === CONTENT_VERSION &&
+          parsed.revealed &&
+          typeof parsed.revealed === "object"
+        ) {
           setRevealed(parsed.revealed);
         }
       }
@@ -55,7 +67,7 @@ export default function HomePage() {
     try {
       window.localStorage.setItem(
         STORAGE_KEY,
-        JSON.stringify({ teams, revealed }),
+        JSON.stringify({ version: CONTENT_VERSION, teams, revealed }),
       );
     } catch {
       // Ignore storage write failures (e.g. private mode quotas).
@@ -112,6 +124,7 @@ export default function HomePage() {
     setActive(null);
     setShowResponse(false);
     setTeams((prev) => prev.map((t) => ({ ...t, score: 0 })));
+    setGameId((id) => id + 1);
   }, []);
 
   const totalClues = gameData.categories.reduce(
@@ -129,7 +142,7 @@ export default function HomePage() {
           alt="Japan Traffic Jeopardy"
           className="mx-auto mb-4 h-24 w-auto sm:h-32"
         />
-        <h1 className="jeopardy-category text-3xl font-extrabold uppercase tracking-wide text-jeopardy-value drop-shadow sm:text-5xl">
+        <h1 className="jeopardy-display text-4xl uppercase tracking-wide text-jeopardy-value drop-shadow sm:text-6xl">
           Japan Traffic Jeopardy
         </h1>
         <p className="mt-2 text-sm text-blue-200 sm:text-base">
@@ -158,7 +171,7 @@ export default function HomePage() {
             onSelect={handleSelect}
           />
           {gameData.finalJeopardy && (
-            <FinalJeopardy final={gameData.finalJeopardy} />
+            <FinalJeopardy key={gameId} final={gameData.finalJeopardy} />
           )}
         </div>
 

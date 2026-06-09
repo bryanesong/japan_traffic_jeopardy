@@ -3,7 +3,6 @@ export interface Clue {
   clue: string;
   response: string;
   note?: string;
-  revealed?: boolean;
 }
 
 export interface Category {

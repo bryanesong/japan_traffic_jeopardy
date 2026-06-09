@@ -6,23 +6,33 @@
   color-scheme: dark;
 }
 
+/* Japanese-glyph fallback so kanji (止まれ, 二輪駐車場) always render. */
+:root {
+  --jp-fallback: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic",
+    "Noto Sans JP", Meiryo, sans-serif;
+}
+
 body {
-  background: radial-gradient(
-    circle at top,
-    #0b0f5a 0%,
-    #060636 60%,
-    #03031f 100%
-  );
+  background:
+    url("/bg-pattern.svg"),
+    radial-gradient(circle at top, #0b0f5a 0%, #060636 60%, #03031f 100%);
+  background-attachment: fixed;
 }
 
 /* Jeopardy-style board value text */
 .jeopardy-value {
-  font-family: var(--font-board, "Arial Narrow"), Impact, system-ui, sans-serif;
+  font-family: var(--font-board, "Arial Narrow"), Impact, var(--jp-fallback);
   letter-spacing: 0.02em;
   text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.55);
 }
 
 .jeopardy-category {
-  font-family: var(--font-board, "Arial Narrow"), Impact, system-ui, sans-serif;
+  font-family: var(--font-board, "Arial Narrow"), Impact, var(--jp-fallback);
   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.6);
+}
+
+/* Heavy show-card display face for the main title. */
+.jeopardy-display {
+  font-family: var(--font-display, "Arial Black"), Impact, var(--jp-fallback);
+  text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.5);
 }
