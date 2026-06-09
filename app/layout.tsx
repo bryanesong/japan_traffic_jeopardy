@@ -35,7 +35,6 @@ export const metadata: Metadata = {
     title: "Japan Traffic Jeopardy",
     description:
       "Learn Japanese traffic & motorcycle laws in style before your ride.",
-    images: ["/og-image.svg"],
   },
 };
 

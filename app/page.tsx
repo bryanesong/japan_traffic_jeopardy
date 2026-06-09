@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import Board from "@/components/Board";
 import ClueModal from "@/components/ClueModal";
+import Logo from "@/components/Logo";
 import Scoreboard, { type Team } from "@/components/Scoreboard";
 import FinalJeopardy from "@/components/FinalJeopardy";
 import { gameData } from "@/lib/gameData";
@@ -136,13 +137,8 @@ export default function HomePage() {
   return (
     <main className="mx-auto max-w-7xl px-4 py-6 sm:py-10">
       <header className="mb-6 text-center">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/logo.svg"
-          alt="Japan Traffic Jeopardy"
-          className="mx-auto mb-4 h-24 w-auto sm:h-32"
-        />
-        <h1 className="jeopardy-display text-4xl uppercase tracking-wide text-jeopardy-value drop-shadow sm:text-6xl">
+        <Logo className="mx-auto mb-4 h-24 w-auto sm:h-32" />
+        <h1 className="sr-only">
           Japan Traffic Jeopardy
         </h1>
         <p className="mt-2 text-sm text-blue-200 sm:text-base">
