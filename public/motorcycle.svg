@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 160" role="img" aria-label="Motorcycle silhouette">
+  <title>Motorcycle</title>
+  <g fill="#0B1560">
+    <!-- rear wheel -->
+    <circle cx="56" cy="118" r="34" fill="none" stroke="#0B1560" stroke-width="10"/>
+    <circle cx="56" cy="118" r="6"/>
+    <!-- front wheel -->
+    <circle cx="200" cy="118" r="34" fill="none" stroke="#0B1560" stroke-width="10"/>
+    <circle cx="200" cy="118" r="6"/>
+    <!-- body / frame -->
+    <path d="M56 118 L92 70 L150 70 L168 56 L150 50 L150 70 L92 70 L120 118 Z"/>
+    <!-- fuel tank + seat -->
+    <path d="M88 78 q20 -22 56 -20 l12 4 q6 8 -4 12 l-44 8 q-18 4 -20 -4 Z"/>
+    <!-- engine block -->
+    <rect x="108" y="86" width="40" height="26" rx="4"/>
+    <!-- exhaust -->
+    <path d="M120 116 L196 122 q10 1 10 6 q0 5 -10 4 L120 124 Z"/>
+  </g>
+  <!-- handlebar + fork -->
+  <g fill="none" stroke="#D69F4C" stroke-width="9" stroke-linecap="round">
+    <path d="M168 56 L186 40 L210 44"/>
+    <path d="M178 48 L200 118"/>
+  </g>
+  <!-- headlight -->
+  <circle cx="186" cy="62" r="9" fill="#FFD24A"/>
+</svg>

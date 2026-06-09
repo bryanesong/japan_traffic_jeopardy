@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Motorcycle helmet">
+  <title>Motorcycle helmet</title>
+  <defs>
+    <linearGradient id="helmetShell" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0A12C8"/>
+      <stop offset="1" stop-color="#060CE9"/>
+    </linearGradient>
+  </defs>
+  <!-- full-face helmet shell -->
+  <path d="M30 104 a70 70 0 0 1 140 0 v22 a14 14 0 0 1 -14 14 h-12 l0 8 a10 10 0 0 1 -10 10 H78 a10 10 0 0 1 -10 -10 v-8 H44 a14 14 0 0 1 -14 -14 Z" fill="url(#helmetShell)"/>
+  <!-- visor opening -->
+  <path d="M58 96 q42 -22 84 0 l0 26 q-42 -10 -84 0 Z" fill="#16204A"/>
+  <!-- visor highlight -->
+  <path d="M62 98 q38 -18 76 0 l0 6 q-38 -14 -76 0 Z" fill="#7FA8FF" opacity="0.55"/>
+  <!-- gold trim band -->
+  <path d="M30 124 q70 14 140 0 l0 6 q-70 14 -140 0 Z" fill="#E8B923"/>
+  <!-- chin vent -->
+  <rect x="86" y="150" width="28" height="8" rx="4" fill="#E8B923"/>
+  <!-- rising-sun emblem on the side -->
+  <circle cx="150" cy="84" r="8" fill="#E03A2F"/>
+</svg>

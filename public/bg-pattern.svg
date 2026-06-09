@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="Seigaiha wave background pattern">
+  <title>Seigaiha wave pattern</title>
+  <defs>
+    <!-- one seigaiha unit: concentric arcs -->
+    <g id="wave">
+      <circle cx="30" cy="30" r="28" fill="none" stroke="#1B2A78" stroke-width="3"/>
+      <circle cx="30" cy="30" r="21" fill="none" stroke="#1B2A78" stroke-width="3"/>
+      <circle cx="30" cy="30" r="14" fill="none" stroke="#1B2A78" stroke-width="3"/>
+      <circle cx="30" cy="30" r="7"  fill="none" stroke="#1B2A78" stroke-width="3"/>
+    </g>
+    <pattern id="seigaiha" x="0" y="0" width="60" height="30" patternUnits="userSpaceOnUse">
+      <rect width="60" height="30" fill="#0B1560"/>
+      <use href="#wave" x="-30" y="-15"/>
+      <use href="#wave" x="0"   y="-15"/>
+      <use href="#wave" x="30"  y="-15"/>
+      <use href="#wave" x="-15" y="0"/>
+      <use href="#wave" x="15"  y="0"/>
+      <use href="#wave" x="45"  y="0"/>
+    </pattern>
+  </defs>
+  <rect width="120" height="120" fill="url(#seigaiha)"/>
+</svg>

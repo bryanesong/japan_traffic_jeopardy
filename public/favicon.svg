@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Japan Traffic Jeopardy favicon">
+  <title>Japan Traffic Jeopardy</title>
+  <rect width="64" height="64" rx="12" fill="#060CE9"/>
+  <!-- rising sun -->
+  <circle cx="44" cy="20" r="9" fill="#FFD24A"/>
+  <!-- torii in gold -->
+  <g fill="#FFD24A">
+    <path d="M14 22 q18 -6 36 0 l0 5 q-18 -5 -36 0 Z"/>
+    <rect x="18" y="33" width="28" height="4"/>
+    <rect x="20" y="27" width="4" height="26"/>
+    <rect x="40" y="27" width="4" height="26"/>
+  </g>
+</svg>
