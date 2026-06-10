@@ -44,6 +44,19 @@ export default function FinalJeopardy({ final }: FinalJeopardyProps) {
               {final.note && (
                 <p className="mt-3 text-sm italic text-blue-200">{final.note}</p>
               )}
+              {final.source && (
+                <p className="mt-3 text-xs text-blue-200/70">
+                  Source:{" "}
+                  <a
+                    href={final.source.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline underline-offset-2 hover:text-jeopardy-value"
+                  >
+                    {final.source.label}
+                  </a>
+                </p>
+              )}
             </div>
           ) : (
             <div className="flex justify-center">

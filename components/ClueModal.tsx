@@ -71,6 +71,19 @@ export default function ClueModal({
             {clue.note && (
               <p className="mt-3 text-sm italic text-blue-200">{clue.note}</p>
             )}
+            {clue.source && (
+              <p className="mt-3 text-xs text-blue-200/70">
+                Source:{" "}
+                <a
+                  href={clue.source.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline underline-offset-2 hover:text-jeopardy-value"
+                >
+                  {clue.source.label}
+                </a>
+              </p>
+            )}
           </div>
         ) : null}
 
