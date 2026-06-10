@@ -12,13 +12,13 @@ export default function Logo({ className }: { className?: string }) {
       <title>Japan Traffic Jeopardy</title>
       <defs>
         <linearGradient id="logoBadge" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#0A12C8" />
-          <stop offset="1" stopColor="#060CE9" />
+          <stop offset="0" stopColor="#34468f" />
+          <stop offset="1" stopColor="#2c3e94" />
         </linearGradient>
         <linearGradient id="logoGold" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#FFE08A" />
-          <stop offset="0.5" stopColor="#E8B923" />
-          <stop offset="1" stopColor="#D4A017" />
+          <stop offset="0" stopColor="#f3da93" />
+          <stop offset="0.5" stopColor="#ecc66a" />
+          <stop offset="1" stopColor="#caa94f" />
         </linearGradient>
       </defs>
 
@@ -29,13 +29,13 @@ export default function Logo({ className }: { className?: string }) {
         height="240"
         rx="22"
         fill="url(#logoBadge)"
-        stroke="#FFD24A"
+        stroke="#e0bd5e"
         strokeWidth="4"
       />
 
       {/* emblem: rising-sun rays behind torii + Fuji */}
       <g transform="translate(150 96)">
-        <g stroke="#FFD24A" strokeWidth="6" strokeLinecap="round" opacity="0.85">
+        <g stroke="#e0bd5e" strokeWidth="6" strokeLinecap="round" opacity="0.85">
           <line x1="0" y1="0" x2="0" y2="-58" />
           <line x1="0" y1="0" x2="40" y2="-42" />
           <line x1="0" y1="0" x2="58" y2="0" />
@@ -44,7 +44,7 @@ export default function Logo({ className }: { className?: string }) {
           <line x1="0" y1="0" x2="-58" y2="0" />
           <line x1="0" y1="0" x2="-40" y2="42" />
         </g>
-        <circle cx="0" cy="0" r="46" fill="#060CE9" />
+        <circle cx="0" cy="0" r="46" fill="#2c3e94" />
         <path d="M-44 30 L-10 -22 q10 -14 20 0 L44 30 Z" fill="#1B2A78" />
         <path
           d="M-10 -22 q10 -14 20 0 l-6 8 q-4 -4 -8 0 q-4 4 -8 0 Z"
@@ -59,13 +59,13 @@ export default function Logo({ className }: { className?: string }) {
       </g>
 
       {/* motorcycle silhouette */}
-      <g transform="translate(238 178) scale(0.62)" fill="#FFD24A">
+      <g transform="translate(238 178) scale(0.62)" fill="#e0bd5e">
         <circle
           cx="56"
           cy="118"
           r="30"
           fill="none"
-          stroke="#FFD24A"
+          stroke="#e0bd5e"
           strokeWidth="9"
         />
         <circle
@@ -73,7 +73,7 @@ export default function Logo({ className }: { className?: string }) {
           cy="118"
           r="30"
           fill="none"
-          stroke="#FFD24A"
+          stroke="#e0bd5e"
           strokeWidth="9"
         />
         <path d="M56 118 L92 74 L150 74 L120 118 Z" />
@@ -83,7 +83,7 @@ export default function Logo({ className }: { className?: string }) {
         <path
           d="M150 74 L168 58 L196 62"
           fill="none"
-          stroke="#FFD24A"
+          stroke="#e0bd5e"
           strokeWidth="8"
           strokeLinecap="round"
         />

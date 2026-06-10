@@ -45,7 +45,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${oswald.variable} ${anton.variable}`}>
-      <body className="min-h-screen bg-jeopardy-dark text-white antialiased">
+      <body className="min-h-screen bg-jeopardy-dark text-[#e9ecf8] antialiased">
         {children}
       </body>
     </html>
