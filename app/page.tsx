@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import Board from "@/components/Board";
 import ClueModal from "@/components/ClueModal";
 import Logo from "@/components/Logo";
+import Illustration from "@/components/Illustration";
 import Scoreboard, { type Team } from "@/components/Scoreboard";
 import FinalJeopardy from "@/components/FinalJeopardy";
 import { gameData } from "@/lib/gameData";
@@ -144,6 +145,10 @@ export default function HomePage() {
         <p className="mt-2 text-sm text-blue-200 sm:text-base">
           A party trivia game about Japanese traffic &amp; motorcycle laws.
         </p>
+        <Illustration
+          name="touring.png"
+          className="mx-auto mt-4 h-24 w-auto object-contain sm:h-28"
+        />
       </header>
 
       <div className="mb-4 flex flex-wrap items-center justify-between gap-3">

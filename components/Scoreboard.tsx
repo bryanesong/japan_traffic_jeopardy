@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Illustration from "@/components/Illustration";
 
 export interface Team {
   id: string;
@@ -60,9 +61,15 @@ export default function Scoreboard({
       </form>
 
       {teams.length === 0 ? (
-        <p className="text-sm italic text-blue-200/70">
-          No teams yet. Add a team to start tracking scores.
-        </p>
+        <div className="py-2 text-center">
+          <Illustration
+            name="teams.png"
+            className="mx-auto mb-2 h-20 w-auto object-contain"
+          />
+          <p className="text-sm italic text-blue-200/70">
+            No teams yet. Add a team to start tracking scores.
+          </p>
+        </div>
       ) : (
         <ul className="space-y-3">
           {teams.map((team) => (
@@ -72,12 +79,10 @@ export default function Scoreboard({
             >
               <div className="flex items-center justify-between gap-2">
                 <span className="flex min-w-0 items-center gap-2 font-bold text-white">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="/helmet.svg"
-                    alt=""
-                    aria-hidden="true"
-                    className="h-6 w-6 shrink-0"
+                  <Illustration
+                    name="rider.png"
+                    fallbackSrc="/helmet.svg"
+                    className="h-6 w-6 shrink-0 object-contain"
                   />
                   <span className="truncate">{team.name}</span>
                 </span>

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import type { FinalJeopardy as FinalJeopardyData } from "@/lib/types";
+import Illustration from "@/components/Illustration";
 
 interface FinalJeopardyProps {
   final: FinalJeopardyData;
@@ -32,6 +33,10 @@ export default function FinalJeopardy({ final }: FinalJeopardyProps) {
         </div>
       ) : (
         <div className="space-y-5">
+          <Illustration
+            name={final.image}
+            className="mx-auto h-24 w-auto object-contain sm:h-28"
+          />
           <p className="jeopardy-category mx-auto max-w-3xl text-center text-xl font-bold uppercase leading-snug text-white sm:text-2xl">
             {final.clue}
           </p>
