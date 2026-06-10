@@ -8,13 +8,13 @@ export const contentType = "image/png";
 
 // Emblem (rising-sun disc + Fuji + torii) as a font-free vector data URI.
 const emblem = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="-72 -72 144 144">
-  <g stroke="#E8B923" stroke-width="6" stroke-linecap="round" opacity="0.9">
+  <g stroke="#d8b75e" stroke-width="6" stroke-linecap="round" opacity="0.9">
     <line x1="0" y1="0" x2="0" y2="-58"/><line x1="0" y1="0" x2="40" y2="-42"/>
     <line x1="0" y1="0" x2="58" y2="0"/><line x1="0" y1="0" x2="40" y2="42"/>
     <line x1="0" y1="0" x2="-40" y2="-42"/><line x1="0" y1="0" x2="-58" y2="0"/>
     <line x1="0" y1="0" x2="-40" y2="42"/>
   </g>
-  <circle cx="0" cy="0" r="46" fill="#060CE9"/>
+  <circle cx="0" cy="0" r="46" fill="#2c3e94"/>
   <path d="M-44 30 L-10 -22 q10 -14 20 0 L44 30 Z" fill="#1B2A78"/>
   <path d="M-10 -22 q10 -14 20 0 l-6 8 q-4 -4 -8 0 q-4 4 -8 0 Z" fill="#FFFFFF"/>
   <g fill="#E03A2F">
@@ -37,8 +37,8 @@ export default function OpengraphImage() {
           alignItems: "center",
           padding: 72,
           boxSizing: "border-box",
-          border: "14px solid #E8B923",
-          background: "linear-gradient(135deg, #0B0F5A 0%, #060CE9 100%)",
+          border: "14px solid #caa94f",
+          background: "linear-gradient(135deg, #1c2455 0%, #2c3e94 100%)",
         }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -46,17 +46,17 @@ export default function OpengraphImage() {
         <div
           style={{ display: "flex", flexDirection: "column", marginLeft: 64 }}
         >
-          <div style={{ display: "flex", fontSize: 104, color: "#E8B923", lineHeight: 1 }}>
+          <div style={{ display: "flex", fontSize: 104, color: "#ecc66a", lineHeight: 1}}>
             JAPAN
           </div>
-          <div style={{ display: "flex", fontSize: 104, color: "#E8B923", lineHeight: 1 }}>
+          <div style={{ display: "flex", fontSize: 104, color: "#ecc66a", lineHeight: 1}}>
             TRAFFIC
           </div>
           <div
             style={{
               display: "flex",
               fontSize: 88,
-              color: "#FFFFFF",
+              color: "#f2f4fb",
               letterSpacing: 8,
               lineHeight: 1.15,
             }}

@@ -9,11 +9,11 @@ const config: Config = {
     extend: {
       colors: {
         jeopardy: {
-          blue: "#060ce9",
-          dark: "#0b0f5a",
-          board: "#0a0e8c",
-          gold: "#d4a017",
-          value: "#e8b923",
+          blue: "#2c3e94",
+          dark: "#171d3d",
+          board: "#222c70",
+          gold: "#caa94f",
+          value: "#ecc66a",
         },
       },
       fontFamily: {

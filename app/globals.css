@@ -15,8 +15,9 @@
 body {
   background:
     url("/bg-pattern.svg"),
-    radial-gradient(circle at top, #0b0f5a 0%, #060636 60%, #03031f 100%);
+    radial-gradient(circle at top, #1c2455 0%, #141a40 55%, #0e1230 100%);
   background-attachment: fixed;
+  color: #e9ecf8;
 }
 
 /* Jeopardy-style board value text */
