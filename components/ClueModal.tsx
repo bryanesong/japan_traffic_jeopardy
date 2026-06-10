@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import type { Clue } from "@/lib/types";
+import Illustration from "@/components/Illustration";
 
 interface ClueModalProps {
   clue: Clue;
@@ -59,7 +60,12 @@ export default function ClueModal({
           </span>
         </div>
 
-        <p className="jeopardy-category py-6 text-center text-xl font-bold uppercase leading-snug text-white sm:py-10 sm:text-3xl">
+        <Illustration
+          name={clue.image}
+          className="mx-auto mt-4 h-28 w-auto object-contain sm:h-36"
+        />
+
+        <p className="jeopardy-category py-6 text-center text-xl font-bold uppercase leading-snug text-white sm:py-8 sm:text-3xl">
           {clue.clue}
         </p>
 

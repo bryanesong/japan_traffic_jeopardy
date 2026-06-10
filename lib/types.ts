@@ -12,11 +12,15 @@ export interface Clue {
   response: string;
   note?: string;
   source?: SourceRef;
+  /** Optional illustration filename in /public/illustrations (e.g. "helmet.png"). */
+  image?: string;
 }
 
 export interface Category {
   name: string;
   clues: Clue[];
+  /** Optional illustration filename in /public/illustrations for the header. */
+  image?: string;
 }
 
 export interface FinalJeopardy {
@@ -25,6 +29,7 @@ export interface FinalJeopardy {
   response: string;
   note?: string;
   source?: SourceRef;
+  image?: string;
 }
 
 export interface GameData {

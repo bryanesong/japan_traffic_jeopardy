@@ -1,6 +1,7 @@
 "use client";
 
 import type { Category } from "@/lib/types";
+import Illustration from "@/components/Illustration";
 
 interface BoardProps {
   categories: Category[];
@@ -26,8 +27,12 @@ export default function Board({ categories, revealed, onSelect }: BoardProps) {
           {categories.map((category) => (
             <div
               key={category.name}
-              className="jeopardy-category flex min-h-[64px] items-center justify-center bg-jeopardy-blue px-2 py-3 text-center text-sm font-bold uppercase leading-tight text-white sm:text-base"
+              className="jeopardy-category flex min-h-[64px] flex-col items-center justify-center gap-1 bg-jeopardy-blue px-2 py-3 text-center text-sm font-bold uppercase leading-tight text-white sm:text-base"
             >
+              <Illustration
+                name={category.image}
+                className="h-8 w-auto object-contain sm:h-10"
+              />
               {category.name}
             </div>
           ))}

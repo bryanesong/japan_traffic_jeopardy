@@ -9,6 +9,10 @@ import type { GameData, SourceRef } from "./types";
  * host can explain the real rule, and `source` links the authoritative page
  * the fact came from so any answer can be fact-checked.
  *
+ * `image` is an optional Irasutoya illustration filename in /public/illustrations.
+ * Missing images degrade gracefully (nothing renders) — see public/illustrations/README.md
+ * for the pick-list of which illustration to download for each slot.
+ *
  * Laws as of 2024-2026 — always confirm current rules before you ride.
  */
 
@@ -64,6 +68,7 @@ export const gameData: GameData = {
   categories: [
     {
       name: "Rules of the Road",
+      image: "cat_rules.png",
       clues: [
         {
           value: 200,
@@ -71,6 +76,7 @@ export const gameData: GameData = {
           response: "What is the left?",
           note: "Japan drives on the left; keep-left is the basic rule and you overtake on the right.",
           source: SRC.jafRules,
+          image: "drive_left.png",
         },
         {
           value: 400,
@@ -78,6 +84,7 @@ export const gameData: GameData = {
           response: "What is a turn on red?",
           note: "There is no 'turn on red' in Japan. Only a green light or green-arrow signal lets you proceed.",
           source: SRC.jafTraffic,
+          image: "red_light.png",
         },
         {
           value: 600,
@@ -85,6 +92,7 @@ export const gameData: GameData = {
           response: "What is 60 km/h?",
           note: "The statutory default is 60 km/h on ordinary roads (and 100 km/h on expressways). Posted signs override it.",
           source: SRC.jafTraffic,
+          image: "speedometer.png",
         },
         {
           value: 800,
@@ -92,6 +100,7 @@ export const gameData: GameData = {
           response: "What is come to a complete stop?",
           note: "A full stop is mandatory at all railroad crossings — then look and listen before crossing.",
           source: SRC.jafTraffic,
+          image: "railroad_crossing.png",
         },
         {
           value: 1000,
@@ -99,11 +108,13 @@ export const gameData: GameData = {
           response: "What are pedestrians and cyclists?",
           note: "Turning vehicles must yield to pedestrians and cyclists crossing, and to traffic on the priority road.",
           source: SRC.jafRules,
+          image: "crosswalk.png",
         },
       ],
     },
     {
       name: "License to Ride",
+      image: "cat_license.png",
       clues: [
         {
           value: 200,
@@ -111,6 +122,7 @@ export const gameData: GameData = {
           response: "What is an International Driving Permit (IDP)?",
           note: "An IDP plus your original home license are both required — the IDP is invalid on its own.",
           source: SRC.jafForeign,
+          image: "intl_permit.png",
         },
         {
           value: 400,
@@ -118,6 +130,7 @@ export const gameData: GameData = {
           response: "What is the Geneva Convention (on Road Traffic, 1949)?",
           note: "The IDP's cover must read 'CONVENTION ON ROAD TRAFFIC 1949'. Many countries issue the 1968 version, which Japan rejects.",
           source: SRC.jafForeign,
+          image: "globe.png",
         },
         {
           value: 600,
@@ -125,6 +138,7 @@ export const gameData: GameData = {
           response: "What is one year?",
           note: "You may ride for up to 1 year from your date of entry (the IDP is also valid 1 year from issue).",
           source: SRC.jafForeign,
+          image: "calendar.png",
         },
         {
           value: 800,
@@ -132,6 +146,7 @@ export const gameData: GameData = {
           response: "What is an official Japanese translation of their license?",
           note: "These six countries' licenses aren't covered by the Geneva IDP, so an official JAF (or embassy) translation is required.",
           source: SRC.jafForeign,
+          image: "translation.png",
         },
         {
           value: 1000,
@@ -139,11 +154,13 @@ export const gameData: GameData = {
           response: "What is a credit card?",
           note: "Rental shops need all four documents; many also set their own minimum age (often 20 or 25) for larger bikes.",
           source: SRC.liveJapanMoto,
+          image: "credit_card.png",
         },
       ],
     },
     {
       name: "Two-Wheel Law",
+      image: "cat_motorcycle.png",
       clues: [
         {
           value: 200,
@@ -151,6 +168,7 @@ export const gameData: GameData = {
           response: "What is a helmet?",
           note: "Helmets are mandatory nationwide and should carry a PSC, SG, or JIS approval mark.",
           source: SRC.liveJapanMoto,
+          image: "helmet.png",
         },
         {
           value: 400,
@@ -158,6 +176,7 @@ export const gameData: GameData = {
           response: "What is 125cc?",
           note: "Bikes 125cc and under are banned from expressways — you need over 125cc to get on.",
           source: SRC.nexcoBike,
+          image: "motorcycle_highway.png",
         },
         {
           value: 600,
@@ -165,6 +184,7 @@ export const gameData: GameData = {
           response: "What is one year?",
           note: "Tandem riding on ordinary roads requires 1 year of license experience (and a bike over 50cc with proper footpegs).",
           source: SRC.liveJapanMoto,
+          image: "tandem.png",
         },
         {
           value: 800,
@@ -172,6 +192,7 @@ export const gameData: GameData = {
           response: "What is 20 years old and 3 years of experience?",
           note: "Two-up on expressways has only been legal since 2005, and some Tokyo Shuto sections still ban it entirely.",
           source: SRC.liveJapanMoto,
+          image: "tandem_highway.png",
         },
         {
           value: 1000,
@@ -179,11 +200,13 @@ export const gameData: GameData = {
           response: "What is a legal gray area?",
           note: "Slow filtering is generally tolerated, but aggressive weaving (or crossing solid lines) can be cited as reckless driving — it's officer discretion.",
           source: SRC.ninjaLane,
+          image: "traffic_jam_bike.png",
         },
       ],
     },
     {
       name: "Don't Drink & Ride",
+      image: "cat_alcohol.png",
       clues: [
         {
           value: 200,
@@ -191,6 +214,7 @@ export const gameData: GameData = {
           response: "What is alcohol?",
           note: "Penalties are severe and the legal threshold is very low — the safest amount before riding is none.",
           source: SRC.npaAlcohol,
+          image: "beer.png",
         },
         {
           value: 400,
@@ -198,6 +222,7 @@ export const gameData: GameData = {
           response: "What is a mobile phone?",
           note: "Penalties were sharply increased in Dec 2019; phone use that causes danger means an instant suspension.",
           source: SRC.jafTraffic,
+          image: "phone_driving.png",
         },
         {
           value: 600,
@@ -205,6 +230,7 @@ export const gameData: GameData = {
           response: "What is 0.15 mg per liter?",
           note: "0.15 mg/L of breath (about 0.03% BAC) is the legal threshold under the Road Traffic Act.",
           source: SRC.npaAlcohol,
+          image: "breathalyzer.png",
         },
         {
           value: 800,
@@ -212,6 +238,7 @@ export const gameData: GameData = {
           response: "What is 5 years?",
           note: "Driving while genuinely intoxicated (酒酔い) carries up to 5 years in prison or a ¥1,000,000 fine.",
           source: SRC.npaAlcohol,
+          image: "handcuffs.png",
         },
         {
           value: 1000,
@@ -219,11 +246,13 @@ export const gameData: GameData = {
           response: "What are the passenger, the alcohol provider, and the vehicle provider?",
           note: "Under 'joint responsibility,' passengers and alcohol-givers face up to 3 yrs/¥500,000, and vehicle-providers up to 5 yrs/¥1,000,000.",
           source: SRC.oistAlcohol,
+          image: "police.png",
         },
       ],
     },
     {
       name: "Signs & Signals",
+      image: "cat_signs.png",
       clues: [
         {
           value: 200,
@@ -231,6 +260,7 @@ export const gameData: GameData = {
           response: "What is stop?",
           note: "Japan's stop sign is an inverted red triangle reading 'tomare' — unusual versus the global octagon.",
           source: SRC.wikiSigns,
+          image: "stop_sign.png",
         },
         {
           value: 400,
@@ -238,6 +268,7 @@ export const gameData: GameData = {
           response: "What is mandatory (a mandatory instruction)?",
           note: "Blue circles = mandatory/instruction; a white circle with a red border = a prohibition.",
           source: SRC.wikiSigns,
+          image: "blue_sign.png",
         },
         {
           value: 600,
@@ -245,6 +276,7 @@ export const gameData: GameData = {
           response: "What is 'Do Not Enter' (no entry / one-way against you)?",
           note: "It marks a closed road or the wrong way of a one-way street.",
           source: SRC.wikiSigns,
+          image: "no_entry.png",
         },
         {
           value: 800,
@@ -252,6 +284,7 @@ export const gameData: GameData = {
           response: "What is the maximum speed limit (50 km/h)?",
           note: "Speed limits are posted as a black number in a red-bordered white circle, in km/h.",
           source: SRC.wikiSigns,
+          image: "speed_sign.png",
         },
         {
           value: 1000,
@@ -259,11 +292,13 @@ export const gameData: GameData = {
           response: "What is English?",
           note: "Bilingual Japanese/English signage is now common; expressway route shields are green, ordinary-road shields blue.",
           source: SRC.wikiSigns,
+          image: "road_sign.png",
         },
       ],
     },
     {
       name: "The Open Road",
+      image: "cat_expressway.png",
       clues: [
         {
           value: 200,
@@ -271,6 +306,7 @@ export const gameData: GameData = {
           response: "What are tolls?",
           note: "Expressways (高速道路) are tolled; motorcycle tolls run roughly 20% cheaper than cars.",
           source: SRC.nexcoBike,
+          image: "tollgate.png",
         },
         {
           value: 400,
@@ -278,6 +314,7 @@ export const gameData: GameData = {
           response: "What is ETC (Electronic Toll Collection)?",
           note: "Motorcycle ETC users can also buy flat-rate regional 'Touring Plan' passes for multi-day trips.",
           source: SRC.nexcoBike,
+          image: "etc_gate.png",
         },
         {
           value: 600,
@@ -285,6 +322,7 @@ export const gameData: GameData = {
           response: "What is 100 km/h?",
           note: "The standard expressway limit is 100 km/h; a few Shin-Tomei and Tohoku sections allow 120.",
           source: SRC.jafTraffic,
+          image: "expressway.png",
         },
         {
           value: 800,
@@ -292,6 +330,7 @@ export const gameData: GameData = {
           response: "What is passing / overtaking?",
           note: "Keep left and pass on the right; sitting in the right lane is improper lane use.",
           source: SRC.jafRules,
+          image: "highway_lanes.png",
         },
         {
           value: 1000,
@@ -299,6 +338,7 @@ export const gameData: GameData = {
           response: "What is designated motorcycle parking?",
           note: "Illegal-parking fines run about ¥9,000-¥12,000; cities enforce strictly, so use 二輪 parking.",
           source: SRC.ninjaRules,
+          image: "parking.png",
         },
       ],
     },
@@ -309,6 +349,7 @@ export const gameData: GameData = {
     response: "What is the 'thank-you hazard' (サンキューハザード)?",
     note: "It's etiquette, not law — a quick way to say thanks (or sorry) to other drivers. Honking, by contrast, is considered rude.",
     source: SRC.thankYou,
+    image: "thank_you_driving.png",
   },
 };
 
