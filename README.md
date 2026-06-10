@@ -55,9 +55,14 @@ Every push to your default branch then redeploys automatically.
 ## Editing the questions
 
 All game content lives in [`lib/gameData.ts`](./lib/gameData.ts). Each clue is a
-`{ value, clue, response, note }` object — edit the text, add categories, or swap
-in your own questions. Clues are phrased as Jeopardy "answers" and responses as
-questions ("What is…?").
+`{ value, clue, response, note, source }` object — edit the text, add categories,
+or swap in your own questions. Clues are phrased as Jeopardy "answers" and
+responses as questions ("What is…?").
+
+Every clue carries a `source` (`{ label, url }`) pointing at the authoritative
+page the fact came from (JAF, NEXCO, the National Police Agency, etc.). The link
+is shown under the answer when revealed, so you can always fact-check — and laws
+change, so do verify before you rely on anything.
 
 ## Disclaimer
 
