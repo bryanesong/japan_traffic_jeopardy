@@ -110,3 +110,25 @@ These illustrations are © Irasutoya / Takashi Mifune, offered free under their
 | `touring.png` | ツーリング バイク (motorcycle touring) | Header, under the title |
 | `rider.png` | バイク 人 (person riding) | Team avatars (falls back to the helmet icon) |
 | `teams.png` | グループ 人々 (group of people) | Scoreboard "no teams yet" state |
+
+## Filenames — question-bank expansion
+
+The game now draws from a larger randomized bank (≈60 clues; each game samples a
+different board). These extra slots are optional too — see
+`scripts/fetch-illustrations.mjs` for the full filename → search-term list the
+automated fetcher uses. New filenames: `seatbelt.png`, `child_car_seat.png`,
+`emergency_vehicle.png`, `crosswalk_pedestrian.png`, `car_headlights.png`,
+`passport_travel.png`, `age_sixteen.png`, `license_conversion.png`,
+`small_license.png`, `written_test.png`, `moped_30kmh.png`, `helmet_marks.png`,
+`two_stage_turn.png`, `ordinary_license.png`, `illegal_muffler.png`,
+`drunk_cyclist.png`, `drowsy_rider.png`, `demerit_points.png`,
+`license_revoked.png`, `evasion.png`, `green_arrow.png`, `flashing_red.png`,
+`yellow_warning.png`, `green_shield.png`, `e_number.png`, `michi_no_eki.png`,
+`service_area.png`, `minimum_speed.png`, `speed_120.png`, `no_honking.png`.
+
+## Filenames — new categories (Touring Culture, Gear & Inspection, Penalties & Police, Money & Logistics)
+
+The bank grew to ~120 clues across 10 categories with themed boards. The full
+filename → search-term list for these (category headers `cat_touring.png`,
+`cat_gear.png`, `cat_police.png`, `cat_money.png`, plus their clue images) lives
+in `scripts/fetch-illustrations.mjs` — the automated fetcher pulls them all.

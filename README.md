@@ -11,12 +11,16 @@ shout their answers in the form of a question, and you tap +/- to keep score.
 
 - **Classic 6×5 Jeopardy board** — six categories, $200–$1000 clues, plus a
   Final Jeopardy round.
+- **Randomized question bank** — each game deals a different board by sampling
+  one clue per tier from a pool of ~60 clues, so it stays fresh. **🎲 New Board**
+  reshuffles (keeping scores); **New Game / Reset** deals a fresh board and zeroes
+  scores.
 - **Party/host mode** — click a clue, read it aloud, reveal the response and a
   short explanatory note.
 - **Team scoreboard** — add teams, quick +/- by the active clue's value, or
   manual adjustments. Negative scores allowed.
-- **Auto-save** — board progress and scores persist in your browser
-  (localStorage), with a one-click New Game / Reset.
+- **Auto-save** — the current board and scores persist in your browser
+  (localStorage).
 - **Themed art** — original SVG logo, motorcycle, torii, Mt. Fuji, and a 止まれ
   stop sign (see [`THEME.md`](./THEME.md)).
 
@@ -54,10 +58,13 @@ Every push to your default branch then redeploys automatically.
 
 ## Editing the questions
 
-All game content lives in [`lib/gameData.ts`](./lib/gameData.ts). Each clue is a
-`{ value, clue, response, note, source }` object — edit the text, add categories,
-or swap in your own questions. Clues are phrased as Jeopardy "answers" and
-responses as questions ("What is…?").
+All questions live in the bank at [`lib/questionBank.ts`](./lib/questionBank.ts).
+Each category holds many clues across the dollar tiers; [`lib/board.ts`](./lib/board.ts)
+samples one clue per tier per game to build a board, so adding more clues to a
+tier just increases the variety. Each clue is a
+`{ value, clue, response, note, source, image }` object — edit the text, add
+clues/categories, or add Final Jeopardy clues to the `finals` pool. Clues are
+phrased as Jeopardy "answers" and responses as questions ("What is…?").
 
 Every clue carries a `source` (`{ label, url }`) pointing at the authoritative
 page the fact came from (JAF, NEXCO, the National Police Agency, etc.). The link
