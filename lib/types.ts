@@ -36,3 +36,15 @@ export interface GameData {
   categories: Category[];
   finalJeopardy?: FinalJeopardy;
 }
+
+/**
+ * The pool of all clues. Each category's `clues` holds MANY clues across the
+ * dollar tiers; a board is generated per game by sampling one clue per tier
+ * (see lib/board.ts), so every game is different. `finals` is the Final
+ * Jeopardy pool.
+ */
+export interface QuestionBank {
+  categories: Category[];
+  finals: FinalJeopardy[];
+}
+
