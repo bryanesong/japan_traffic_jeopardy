@@ -9,10 +9,11 @@ import Scoreboard, { type Team } from "@/components/Scoreboard";
 import FinalJeopardy from "@/components/FinalJeopardy";
 import { questionBank } from "@/lib/questionBank";
 import { generateBoard, randomSeed } from "@/lib/board";
+import { BOARDS, DEFAULT_BOARD_ID, boardById } from "@/lib/boards";
 
 const STORAGE_KEY = "japan-traffic-jeopardy-state";
 // Bump when the bank/board structure changes so old saved state is discarded.
-const CONTENT_VERSION = 2;
+const CONTENT_VERSION = 3;
 // Deterministic seed used for the very first server render (avoids hydration
 // mismatch); replaced with the stored or a random seed right after mount.
 const INITIAL_SEED = 1;
@@ -38,6 +39,8 @@ export default function HomePage() {
   const [hydrated, setHydrated] = useState(false);
   // The seed picks which clues fill the board; a new seed = a new board.
   const [seed, setSeed] = useState(INITIAL_SEED);
+  // Which themed board (set of categories) is in play.
+  const [themeId, setThemeId] = useState(DEFAULT_BOARD_ID);
   // Incremented whenever the board changes so the Final Jeopardy panel (which
   // holds its own open/revealed state) remounts fresh.
   const [gameId, setGameId] = useState(0);
@@ -53,6 +56,7 @@ export default function HomePage() {
           teams?: Team[];
           revealed?: Record<string, boolean>;
           seed?: number;
+          themeId?: string;
         };
         if (Array.isArray(parsed.teams)) setTeams(parsed.teams);
         if (parsed.version === CONTENT_VERSION) {
@@ -60,6 +64,9 @@ export default function HomePage() {
             setRevealed(parsed.revealed);
           }
           if (typeof parsed.seed === "number") restoredSeed = parsed.seed;
+          if (typeof parsed.themeId === "string" && boardById(parsed.themeId)) {
+            setThemeId(parsed.themeId);
+          }
         }
       }
     } catch {
@@ -76,14 +83,23 @@ export default function HomePage() {
     try {
       window.localStorage.setItem(
         STORAGE_KEY,
-        JSON.stringify({ version: CONTENT_VERSION, teams, revealed, seed }),
+        JSON.stringify({
+          version: CONTENT_VERSION,
+          teams,
+          revealed,
+          seed,
+          themeId,
+        }),
       );
     } catch {
       // Ignore storage write failures (e.g. private mode quotas).
     }
-  }, [teams, revealed, seed, hydrated]);
+  }, [teams, revealed, seed, themeId, hydrated]);
 
-  const board = useMemo(() => generateBoard(questionBank, seed), [seed]);
+  const board = useMemo(
+    () => generateBoard(questionBank, seed, boardById(themeId).categoryNames),
+    [seed, themeId],
+  );
 
   const activeClue = useMemo(() => {
     if (!active) return null;
@@ -137,6 +153,14 @@ export default function HomePage() {
     setGameId((id) => id + 1);
   }, []);
 
+  const handleThemeChange = useCallback((id: string) => {
+    setThemeId(id);
+    setRevealed({});
+    setActive(null);
+    setShowResponse(false);
+    setGameId((n) => n + 1);
+  }, []);
+
   const handleNewBoard = useCallback(() => {
     const ok = window.confirm(
       "Shuffle in a fresh board? This clears the current board's revealed clues (team scores are kept).",
@@ -177,7 +201,21 @@ export default function HomePage() {
         <p className="text-sm text-blue-200/80">
           {revealedCount} / {totalClues} clues revealed
         </p>
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap items-center gap-2">
+          <label className="flex items-center gap-2 text-sm font-bold uppercase text-jeopardy-value">
+            Board
+            <select
+              value={themeId}
+              onChange={(e) => handleThemeChange(e.target.value)}
+              className="rounded-md border-2 border-jeopardy-value/70 bg-jeopardy-dark px-3 py-2 text-sm font-bold text-white focus:outline-none focus:ring-2 focus:ring-jeopardy-value"
+            >
+              {BOARDS.map((b) => (
+                <option key={b.id} value={b.id}>
+                  {b.name}
+                </option>
+              ))}
+            </select>
+          </label>
           <button
             type="button"
             onClick={handleNewBoard}

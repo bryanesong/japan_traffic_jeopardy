@@ -48,3 +48,15 @@ export interface QuestionBank {
   finals: FinalJeopardy[];
 }
 
+/**
+ * A selectable themed board. `categoryNames` lists the six bank categories the
+ * board uses (in column order); omit it for a "random mix" that samples
+ * categories from the whole bank.
+ */
+export interface BoardTheme {
+  id: string;
+  name: string;
+  description?: string;
+  categoryNames?: string[];
+}
+

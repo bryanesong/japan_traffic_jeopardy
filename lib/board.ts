@@ -20,17 +20,45 @@ export function randomSeed(): number {
   return Math.floor(Math.random() * 0x7fffffff);
 }
 
+/** Fisher-Yates shuffle using the provided RNG (does not mutate input). */
+function shuffle<T>(arr: T[], rng: () => number): T[] {
+  const out = arr.slice();
+  for (let i = out.length - 1; i > 0; i--) {
+    const j = Math.floor(rng() * (i + 1));
+    [out[i], out[j]] = [out[j], out[i]];
+  }
+  return out;
+}
+
 /**
  * Build one playable board from the bank for the given seed: for each category
  * it picks one clue per dollar tier, and picks one Final Jeopardy. Deterministic
  * in `seed`, so the same seed reproduces the same board (used for persistence),
  * and a new seed reshuffles everything.
+ *
+ * `categoryNames` selects which six bank categories to use (themed boards). If
+ * omitted, six categories are sampled at random from the whole bank.
  */
-export function generateBoard(bank: QuestionBank, seed: number): GameData {
+export function generateBoard(
+  bank: QuestionBank,
+  seed: number,
+  categoryNames?: string[],
+): GameData {
   const rng = mulberry32(seed);
   const pick = <T>(arr: T[]): T => arr[Math.floor(rng() * arr.length)];
 
-  const categories: Category[] = bank.categories.map((cat) => {
+  let sourceCategories: Category[];
+  if (categoryNames && categoryNames.length) {
+    sourceCategories = categoryNames
+      .map((name) => bank.categories.find((c) => c.name === name))
+      .filter((c): c is Category => Boolean(c));
+  } else {
+    // Random mix: sample up to six categories from the whole bank.
+    sourceCategories = shuffle(bank.categories, rng).slice(0, 6);
+  }
+  if (sourceCategories.length === 0) sourceCategories = bank.categories;
+
+  const categories: Category[] = sourceCategories.map((cat) => {
     const byTier = new Map<number, Clue[]>();
     for (const clue of cat.clues) {
       const list = byTier.get(clue.value);
