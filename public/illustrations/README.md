@@ -5,7 +5,31 @@ below and they appear automatically across the game. Any slot whose file is
 missing simply renders nothing (no broken images), so you can add as few or as
 many as you like, in any order.
 
-## How to add one
+## How to add them
+
+You have two options — **automated** (recommended, no manual grabbing) or manual.
+
+### Option A — automated (one click, runs on GitHub)
+
+Because this sandbox/CI can't reach irasutoya.com but GitHub's own runners can,
+there's a workflow that fetches everything for you:
+
+1. Go to the repo's **Actions** tab → **Fetch Illustrations** → **Run workflow**.
+2. It downloads the whole set, pushes them to the **`auto/illustrations`**
+   branch, and you open/merge a PR from that branch.
+
+Or run it locally if you prefer (anywhere with internet access):
+
+```bash
+npm install --no-save irasutoya
+npm run fetch:illustrations      # add -- --force to overwrite existing
+```
+
+The fetcher picks the first search match for each slot — swap any you don't love.
+If the upstream scraper is ever outdated and a slot comes back empty, just use
+Option B for that one.
+
+### Option B — manual
 
 1. Go to <https://www.irasutoya.com/> and search the suggested term.
 2. Open the illustration and save the image (right-click → Save image).

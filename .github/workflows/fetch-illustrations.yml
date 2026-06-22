@@ -1,0 +1,46 @@
+name: Fetch Illustrations
+
+# Manually triggered: downloads Irasutoya illustrations on GitHub's servers
+# (which can reach irasutoya.com) and pushes them to the auto/illustrations
+# branch so you can open/merge a PR. Run it from the repo's Actions tab.
+on:
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Overwrite images that already exist"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install fetcher
+        run: npm install --no-save irasutoya
+
+      - name: Download illustrations
+        run: node scripts/fetch-illustrations.mjs ${{ inputs.force && '--force' || '' }}
+        continue-on-error: true
+
+      - name: Commit & push to auto/illustrations
+        run: |
+          if [ -z "$(git status --porcelain public/illustrations)" ]; then
+            echo "No new images were downloaded — nothing to push."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -B auto/illustrations
+          git add public/illustrations
+          git commit -m "Add fetched Irasutoya illustrations"
+          git push --force origin auto/illustrations
+          echo "Pushed images to branch 'auto/illustrations'. Open a PR from it."
