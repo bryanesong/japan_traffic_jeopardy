@@ -125,3 +125,10 @@ automated fetcher uses. New filenames: `seatbelt.png`, `child_car_seat.png`,
 `license_revoked.png`, `evasion.png`, `green_arrow.png`, `flashing_red.png`,
 `yellow_warning.png`, `green_shield.png`, `e_number.png`, `michi_no_eki.png`,
 `service_area.png`, `minimum_speed.png`, `speed_120.png`, `no_honking.png`.
+
+## Filenames — new categories (Touring Culture, Gear & Inspection, Penalties & Police, Money & Logistics)
+
+The bank grew to ~120 clues across 10 categories with themed boards. The full
+filename → search-term list for these (category headers `cat_touring.png`,
+`cat_gear.png`, `cat_police.png`, `cat_money.png`, plus their clue images) lives
+in `scripts/fetch-illustrations.mjs` — the automated fetcher pulls them all.
