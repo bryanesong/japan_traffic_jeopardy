@@ -264,6 +264,8 @@ export default function HomePage() {
           clue={activeClue}
           categoryName={activeCategoryName}
           showResponse={showResponse}
+          teams={teams}
+          onScore={handleAdjustScore}
           onReveal={() => setShowResponse(true)}
           onClose={handleClose}
         />
